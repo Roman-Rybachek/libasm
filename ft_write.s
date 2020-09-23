@@ -7,7 +7,7 @@ section .text
 _ft_write:
 			xor rax, rax
 			xor rbx, rbx
-			mov rax, 4
+			mov rax, 0x02000004
 			syscall
 			jc set_error
 			ret
