@@ -1,0 +1,21 @@
+global _ft_write
+
+extern ___error
+
+section .text
+
+_ft_write:
+			xor rax, rax
+			xor rbx, rbx
+			mov rax, 4
+			syscall
+			jc set_error
+			ret
+
+set_error:
+			push rax
+			call ___error
+			pop rbx
+			mov [rax], rbx
+			mov rax, -1
+			ret
